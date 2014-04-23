@@ -4,13 +4,15 @@ return array(
     # definir e gerenciar controllers
     'controllers' => array(
         'invokables' => array(
-            'HomeController' => 'TipoAvaliacoes\Controller\HomeController'
+            'HomeController' => 'TipoAvaliacoes\Controller\HomeController',
+            'AvaliacaoController'    => 'TipoAvaliacoes\Controller\AvaliacaoController',
         ),
     ),
  
     # definir e gerenciar rotas
     'router' => array(
         'routes' => array(
+            # literal para action index home
             'home' => array(
                 'type'      => 'Literal',
                 'options'   => array(
@@ -21,8 +23,38 @@ return array(
                     ),
                 ),
             ),
+            # literal para action novo home
+           'novo' => array(
+               'type'      => 'Literal',
+               'options'   => array(
+                   'route'    => '/novo',
+                   'defaults' => array(
+                       'controller' => 'HomeController',
+                       'action'     => 'novo',
+                   ),
+               ),
+           ), 
+            
+    
+        
+    # segment para controller avaliacao
+            'avaliacao' => array(
+                'type'      => 'Segment',
+               'options'   => array(
+                   'route'    => '/avaliacao[/:action][/:id]',
+                    'constraints' => array(
+                       'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                   ),
+                    'defaults' => array(
+                       'controller' => 'AvaliacaoController',
+                       'action'     => 'index',
+                    ),
+               ),
+           ),
         ),
     ),
+    
  
     # definir e gerenciar servicos
     'service_manager' => array(

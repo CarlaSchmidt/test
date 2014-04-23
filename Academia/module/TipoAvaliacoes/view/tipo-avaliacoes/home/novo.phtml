@@ -1,0 +1,32 @@
+<div class="text-center">
+    <h1> Novo tipo de avaliacao!</h1>
+    
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Novo Tipo de Avaliacao           
+        </div>
+    </div>
+    <form class="form-inline" role="form" method="POST" action="<?php echo $this->url('avaliacao', array('action' => 'adicionar')); ?>">
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="inputCodigo" class="col-lg-3 col-md-3 control-label">Codigo:</label>
+                <div class="col-lg-9 col-md-9">
+                    <input type="text" name="codigo" class="form-control" id="inputNome" placeholder="Apenas Numeros">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputDescricao" class="col-lg-3 col-md-3 control-label">Tipo de Avaliacao:</label>
+                <div class="col-lg-9 col-md-9">
+                    <input type="text" name="descricao" class="form-control" id="inputNome" placeholder="Descricao">
+                </div>
+            </div>
+           
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">Salvar Tipo de Avaliacao</button>
+            <a href="<?php echo $this->url('avaliacao'); ?>" class="btn btn-default">Voltar</a>
+        </div>
+    </form>
+</div>
